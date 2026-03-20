@@ -1,4 +1,52 @@
-.main .wrapper {
-    margin: auto;
-    width: 80%
+.article-card {
+    max-width: 78rem;
+    margin: 0 auto;
+}
+
+.article-header {
+    max-width: var(--measure);
+    margin: 0 auto 1.5rem;
+    text-align: center;
+}
+
+.article-meta {
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+}
+
+.article-figure {
+    max-width: 58rem;
+    margin: 0 auto 2rem;
+}
+
+.article-figure img {
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid var(--color-border);
+}
+
+.article-copy {
+    max-width: var(--measure);
+    margin: 0 auto;
+}
+
+.article-table {
+    max-width: 48rem;
+    margin: 2rem auto 0;
+}
+
+.article-table table {
+    background: #ffffff;
+}
+
+.article-table caption {
+    margin-bottom: 0.8rem;
+    color: var(--color-text-muted);
+    caption-side: top;
+    text-align: left;
+}
+
+.article-table th,
+.article-table td {
+    vertical-align: middle;
 }

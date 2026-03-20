@@ -5,236 +5,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lorem Ipsum Institute of Technolgoy</title>
+    <title>Login | Lorem Ipsum Institute of Technology</title>
     <link href="./css/bootstrap.css" rel="stylesheet">
     <link href="./css/common.css" rel="stylesheet">
     <link href="./css/login.css" rel="stylesheet">
 </head>
 
-<body class="bg-light">
-    <div class="container-fluid d-none d-lg-block my-4 header">
+<body class="d-flex flex-column">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" aria-label="Site header">
         <div class="container">
-            <div class="row no-gutters">
-                <div class="col-8 media">
-                    <img class="align-self-center mr-3 rounded-right logo" src="./img/logo.jpg">
-                    <div class="media-body align-self-center">
-                        <div class="mb-0 title">Lorem Ipsum
-                            <br>Institute of Technology
+            <div class="header-panel">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-8">
+                        <div class="media brand">
+                            <img class="brand-mark" src="./img/logo.jpg" alt="Lorem Ipsum Institute of Technology logo">
+                            <div class="media-body">
+                                <p class="brand-name">Lorem Ipsum Institute of Technology</p>
+                                <p class="brand-tagline">Accessible account management for students, staff, and researchers.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-4">
-                    <div class="btn-toolbar justify-content-end">
-                        <div class="btn-group btn-group-sm">
-                            <button class="btn btn-dark font-increase-button" id="font-increase-button">A+</button>
-                            <button class="btn btn-dark font-decrease-button" id="font-decrease-button">A-</button>
+                    <div class="col-12 col-lg-4">
+                        <div class="toolbar">
+                            <p class="toolbar-label" id="font-controls-label">Text size</p>
+                            <div class="btn-group btn-group-sm font-controls" aria-labelledby="font-controls-label">
+                                <button class="btn btn-secondary font-increase-button" type="button" aria-label="Increase text size">A+</button>
+                                <button class="btn btn-secondary font-decrease-button" type="button" aria-label="Decrease text size">A-</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 
-    <div class="container-fluid bg-dark nav">
+    <div class="nav">
         <div class="container">
-            <div class="navbar navbar-dark bg-dark navbar-expand-lg px-0">
-                <div class="navbar-brand d-lg-none">
-                    <img class="rounded-right" src="./img/logo.jpg" width="40" height="40">
-                </div>
-                <button class="navbar-toggler" type="button">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="nav-bar-content">
-                    <div class="navbar-nav mr-auto">
-                        <div class="nav-item">
-                            <a class="nav-link" href="./">Homepage</a>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="nav-bar-faculties">Faculties</a>
-                            <div class="dropdown-menu">
-                                <div>
+            <div class="nav-shell">
+                <nav class="navbar navbar-dark navbar-expand-lg px-3" aria-label="Primary navigation">
+                    <a class="navbar-brand d-lg-none" href="./" aria-label="Lorem Ipsum Institute of Technology home">
+                        <img class="brand-mark" src="./img/logo.jpg" alt="" aria-hidden="true">
+                    </a>
+                    <button class="navbar-toggler" type="button" aria-expanded="false" aria-controls="nav-bar-content" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav-bar-content">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./">Homepage</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <button class="nav-button nav-link dropdown-toggle" type="button" id="nav-bar-faculties" aria-expanded="false" aria-controls="menu-faculties">
+                                    Faculties
+                                </button>
+                                <div class="dropdown-menu" id="menu-faculties" aria-labelledby="nav-bar-faculties" hidden>
                                     <a class="dropdown-item" href="./empty.html?title=Applied+sciences">Applied sciences</a>
-                                </div>
-                                <div>
                                     <a class="dropdown-item" href="./empty.html?title=Architecture+%26+planning">Architecture &amp; planning</a>
-                                </div>
-                                <div>
                                     <a class="dropdown-item" href="./empty.html?title=Construction+%26+environment">Construction &amp; environment</a>
-                                </div>
-                                <div>
                                     <a class="dropdown-item" href="./empty.html?title=Engineering">Engineering</a>
-                                </div>
-                                <div>
                                     <a class="dropdown-item" href="./empty.html?title=Health+%26+social+sciences">Health &amp; social sciences</a>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="nav-bar-education">Education &amp; research</a>
-                            <div class="dropdown-menu">
-                                <div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <button class="nav-button nav-link dropdown-toggle" type="button" id="nav-bar-education" aria-expanded="false" aria-controls="menu-education">
+                                    Education and research
+                                </button>
+                                <div class="dropdown-menu" id="menu-education" aria-labelledby="nav-bar-education" hidden>
                                     <a class="dropdown-item" href="./empty.html?title=Bachelor">Bachelor</a>
-                                </div>
-                                <div>
                                     <a class="dropdown-item" href="./empty.html?title=Master">Master</a>
-                                </div>
-                                <div>
                                     <a class="dropdown-item" href="./empty.html?title=Continuing+education">Continuing education</a>
-                                </div>
-                                <div>
                                     <a class="dropdown-item" href="./empty.html?title=Doctorate">Doctorate</a>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="nav-bar-industry">Industry &amp; partners</a>
-                            <div class="dropdown-menu">
-                                <div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <button class="nav-button nav-link dropdown-toggle" type="button" id="nav-bar-industry" aria-expanded="false" aria-controls="menu-industry">
+                                    Industry and partners
+                                </button>
+                                <div class="dropdown-menu" id="menu-industry" aria-labelledby="nav-bar-industry" hidden>
                                     <a class="dropdown-item" href="./empty.html?title=Public+relations">Public relations</a>
-                                </div>
-                                <div>
                                     <a class="dropdown-item" href="./empty.html?title=Commercialization">Commercialization</a>
-                                </div>
-                                <div>
                                     <a class="dropdown-item" href="./empty.html?title=Sponsors+%26+partners">Sponsors &amp; partners</a>
                                 </div>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./login.html" aria-current="page">Login</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="navbar-nav">
-                        <div class="nav-item">
-                            <a class="nav-link" href="./login.html">Login</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="d-lg-none">
-                <div class="btn-toolbar justify-content-end">
-                    <div class="btn-group btn-group-sm">
-                        <button class="btn btn-dark text-white font-increase-button" id="font-increase-button-1">A+</button>
-                        <button class="btn btn-dark text-white font-decrease-button" id="font-decrease-button-1">A-</button>
-                    </div>
-                </div>
+                </nav>
             </div>
         </div>
     </div>
 
-    <div class="container main" id="main">
-        <div class="row no-gutters">
-            <div class="col-12 col-md-5 mt-4 login">
-                <div class="p-4 mr-md-3 bg-white">
-                    <div class="text-primary mb-4 title">Login</div>
-                    <div class="text-danger mb-4 d-none subtitle" id="login-error">Please correct the error(s)</div>
-                    <ul class="sr-only" id="login-error-list"></ul>
+    <main class="container main" id="main-content" tabindex="-1">
+        <div class="auth-layout">
+            <section aria-labelledby="login-heading">
+                <div class="content-card auth-card">
+                    <h1 class="auth-section-title" id="login-heading">Login</h1>
+                    <p class="auth-section-copy lede">Sign in with clearly labelled controls, visible validation, and keyboard-friendly actions.</p>
+                    <div class="alert-inline d-none" id="login-error" tabindex="-1" role="alert" aria-labelledby="login-error-heading">
+                        <p class="mb-2 font-weight-bold" id="login-error-heading">Please correct the following items:</p>
+                        <ul class="mb-0" id="login-error-list"></ul>
+                    </div>
                     <form id="login-form" novalidate>
                         <div class="form-group">
-                            <input class="form-control" id="login-email-control" type="email" placeholder="Email" required style="position: relative; top: 10px;">
-                            <p style="position: relative; top: -60px;">Email</p>
-                            <small class="invalid-feedback"></small>
+                            <label for="login-email-control">Email address</label>
+                            <input class="form-control" id="login-email-control" type="email" autocomplete="email" required aria-describedby="login-email-help login-email-feedback">
+                            <small class="form-text helper-text" id="login-email-help">Use the email address associated with your account.</small>
+                            <small class="invalid-feedback" id="login-email-feedback"></small>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" id="login-password-control" type="password" placeholder="Password" style="position: relative; top: 10px;">
-                            <p style="position: relative; top: -60px;">Password</p>
-                            <small class="invalid-feedback"></small>
+                            <label for="login-password-control">Password</label>
+                            <input class="form-control" id="login-password-control" type="password" autocomplete="current-password" required aria-describedby="login-password-feedback">
+                            <small class="invalid-feedback" id="login-password-feedback"></small>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="remember" id="login-remmeber-control">
-                                <label class="form-check-label">Keep me logged in</label>
+                                <input class="form-check-input" type="checkbox" value="remember" id="login-remember-control">
+                                <label class="form-check-label" for="login-remember-control">Keep me logged in on this device</label>
                             </div>
                         </div>
-                        <button class="btn btn-primary" id="login-login-button" type="submit">Login</button>
-                        <button class="btn btn-link text-danger ml-3" id="login-forgot-button" type="button">Forgot password</button>
+                        <div class="button-row">
+                            <button class="btn btn-primary" id="login-login-button" type="submit">Login</button>
+                            <button class="btn btn-link text-danger" id="login-forgot-button" type="button">Forgot password</button>
+                        </div>
                     </form>
                 </div>
-            </div>
+            </section>
 
-            <div class="col-12 col-md-7 mt-4 register">
-                <div class="p-4 bg-white">
-                    <div class="text-primary mb-4 title">Create new account</div>
-                    <div class="text-danger mb-4 d-none subtitle" id="register-error">Please correct the error(s)</div>
-                    <ul class="sr-only" id="register-error-list"></ul>
+            <section aria-labelledby="register-heading">
+                <div class="content-card auth-card">
+                    <h2 class="auth-section-title" id="register-heading">Create new account</h2>
+                    <p class="auth-section-copy lede">This form now uses explicit labels, grouped sections, and inline feedback tied directly to each field.</p>
+                    <div class="alert-inline d-none" id="register-error" tabindex="-1" role="alert" aria-labelledby="register-error-heading">
+                        <p class="mb-2 font-weight-bold" id="register-error-heading">Please correct the following items:</p>
+                        <ul class="mb-0" id="register-error-list"></ul>
+                    </div>
                     <form id="register-form" novalidate>
-                        <div class="form-group">
-                            <p class="form-label" id="register-basic-legend">Basic information
-                                <small class="text-secondary">(optional)</small>
-                            </p>
+                        <fieldset class="auth-fieldset">
+                            <legend>Basic information</legend>
                             <div class="form-row">
                                 <div class="form-group col-12 col-lg-6">
-                                    <p>First name</p>
-                                    <input class="form-control" type="text" id="register-first-name-control" placeholder="First name" required>
-                                    <small class="invalid-feedback"></small>
+                                    <label for="register-first-name-control">First name</label>
+                                    <input class="form-control" type="text" id="register-first-name-control" autocomplete="given-name" required aria-describedby="register-first-name-feedback">
+                                    <small class="invalid-feedback" id="register-first-name-feedback"></small>
                                 </div>
                                 <div class="form-group col-12 col-lg-6">
-                                    <p>Last name</p>
-                                    <input class="form-control" type="text" id="register-last-name-control" placeholder="Last name" required>
-                                    <small class="invalid-feedback"></small>
+                                    <label for="register-last-name-control">Last name</label>
+                                    <input class="form-control" type="text" id="register-last-name-control" autocomplete="family-name" required aria-describedby="register-last-name-feedback">
+                                    <small class="invalid-feedback" id="register-last-name-feedback"></small>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <p>Email</p>
-                                <input class="form-control" id="register-email-control" type="email" placeholder="Email" required>
-                                <small class="invalid-feedback"></small>
+                                <label for="register-email-control">Email address</label>
+                                <input class="form-control" id="register-email-control" type="email" autocomplete="email" required aria-describedby="register-email-feedback">
+                                <small class="invalid-feedback" id="register-email-feedback"></small>
                             </div>
                             <div class="form-group">
-                                <p>Password</p>
-                                <input class="form-control" id="register-password-control" type="password" placeholder="Password" required>
-                                <small class="invalid-feedback"></small>
-                                <small id="register-password-help" class="form-text text-muted">Your password must be 8-16 characters long and contain both letters and numbers.</small>
+                                <label for="register-password-control">Password</label>
+                                <input class="form-control" id="register-password-control" type="password" autocomplete="new-password" required aria-describedby="register-password-help register-password-feedback">
+                                <small id="register-password-help" class="form-text helper-text">Your password must be 8 to 16 characters long and contain both letters and numbers.</small>
+                                <small class="invalid-feedback" id="register-password-feedback"></small>
                             </div>
-                            <div class="form-group">
-                                <p>Programme</p>
-                                <select class="form-control" id="register-programme-control" required>
+                            <div class="form-group mb-0">
+                                <label for="register-programme-control">Programme</label>
+                                <select class="form-control" id="register-programme-control" required aria-describedby="register-programme-feedback">
                                     <option value="">Please select your education or research programme</option>
                                     <option value="bachelor">Bachelor</option>
                                     <option value="master">Master</option>
                                     <option value="continuing">Continuing education</option>
                                     <option value="doctorate">Doctorate</option>
                                 </select>
-                                <small class="invalid-feedback"></small>
+                                <small class="invalid-feedback" id="register-programme-feedback"></small>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <p class="form-label" id="register-address-legend">Additional information
-                                <small class="text-secondary">(optional)</small>
-                            </p>
+                        </fieldset>
+
+                        <fieldset class="auth-fieldset">
+                            <legend>Additional information</legend>
                             <div class="form-group">
-                                <p>Street</p>
-                                <input class="form-control" id="register-street-control" type="text" placeholder="Street">
+                                <label for="register-street-control">Street</label>
+                                <input class="form-control" id="register-street-control" type="text" autocomplete="address-line1">
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12 col-lg-5">
-                                    <p>City</p>
-                                    <input class="form-control" id="register-city-control" type="text" placeholder="City">
+                                    <label for="register-city-control">City</label>
+                                    <input class="form-control" id="register-city-control" type="text" autocomplete="address-level2">
                                 </div>
                                 <div class="form-group col-12 col-lg-4">
-                                    <p>State</p>
-                                    <input class="form-control" id="register-state-control" type="text" placeholder="State">
+                                    <label for="register-state-control">State</label>
+                                    <input class="form-control" id="register-state-control" type="text" autocomplete="address-level1">
                                 </div>
-                                <div class="form-group col-12 col-lg-3">
-                                    <p>Zip</p>
-                                    <input class="form-control" id="register-zip-control" type="text" placeholder="Zip">
+                                <div class="form-group col-12 col-lg-3 mb-0">
+                                    <label for="register-zip-control">Postal code</label>
+                                    <input class="form-control" id="register-zip-control" type="text" autocomplete="postal-code">
                                 </div>
                             </div>
-                        </div>
-                        <button class="btn btn-primary" id="register-register-button">Register</button>
+                        </fieldset>
+
+                        <button class="btn btn-primary" id="register-register-button" type="submit">Register</button>
                     </form>
                 </div>
-            </div>
+            </section>
         </div>
-    </div>
+    </main>
 
-    <div class="container-fluid bg-dark mt-4 footer">
-        <div class="container text-center py-3">
-            <div class="row justify-content-around">
-                <a class="col-12 col-md mr-3 text-white" href="./empty.html?title=About">About</a>
-                <a class="col-12 col-md mr-3 text-white" href="./empty.html?title=Contact+us">Contact us</a>
-                <a class="col-12 col-md mr-3 text-white" href="./empty.html?title=Help">Help</a>
-                <a class="col-12 col-md mr-3 text-white" href="./empty.html?title=Terms+of+services">Terms of service</a>
-                <a class="col-12 col-md mr-3 text-white" href="./empty.html?title=Privacy+policy">Privacy policy</a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-panel">
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="./empty.html?title=About">About</a>
+                    <a href="./empty.html?title=Contact+us">Contact us</a>
+                    <a href="./empty.html?title=Help">Help</a>
+                    <a href="./empty.html?title=Terms+of+services">Terms of service</a>
+                    <a href="./empty.html?title=Privacy+policy">Privacy policy</a>
+                </nav>
             </div>
         </div>
-    </div>
+    </footer>
 
     <script type="text/javascript" src="./js/jquery.js"></script>
     <script type="text/javascript" src="./js/popper.js"></script>

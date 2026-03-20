@@ -1,0 +1,11 @@
+.empty-state {
+    max-width: 52rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.empty-state .hero-card {
+    background:
+        linear-gradient(135deg, rgba(0, 90, 156, 0.08), rgba(91, 106, 129, 0.08)),
+        var(--color-surface);
+}

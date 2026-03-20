@@ -1,1 +1,47 @@
+.auth-layout {
+    display: grid;
+    gap: 1.5rem;
+}
 
+.auth-card {
+    height: 100%;
+}
+
+.auth-section-title {
+    margin-bottom: 0.35rem;
+}
+
+.auth-section-copy {
+    margin-bottom: 1.5rem;
+    max-width: 54ch;
+}
+
+.auth-fieldset {
+    margin: 0 0 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-surface-muted);
+}
+
+.auth-fieldset legend {
+    width: auto;
+    padding: 0 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-heading);
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .auth-layout {
+        grid-template-columns: 1fr 1.25fr;
+    }
+}

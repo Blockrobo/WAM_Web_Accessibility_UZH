@@ -16,9 +16,8 @@ function getUrlParameter(name) {
 
 document.addEventListener('DOMContentLoaded', function() {
     var title = getUrlParameter('title');
-    document.getElementById('title-placeholder').innerHTML
-        = title == null ? 'Not found': title;
-    document.getElementById('text-placeholder').innerHTML
+    document.getElementById('title-placeholder').textContent
+        = title == null ? 'Not found' : title;
+    document.getElementById('text-placeholder').textContent
         = title == null ? '' : 'This page is currently under construction.';
 }, false);
-

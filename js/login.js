@@ -1,180 +1,178 @@
-/**
- * Set the form control element to valid
- * @param {object} element - The DOM element
- */
-function setValid(element) {
-    element.classList.remove('is-invalid');
-    element.classList.add('is-valid');
-}
+function setControlState(element, state, message) {
+    var feedback = element.parentNode.querySelector('.invalid-feedback, .valid-feedback');
 
-/**
- * Set the form control element to invalid with the error message
- * @param {object} element - The DOM element
- */
-function setInvalid(element) {
-    element.classList.remove('is-valid');
-    element.classList.add('is-invalid');
-}
-
-/**
- * Remove validation information from the element
- * @param {object} element - The DOM element
- */
-function removeValidation(element) {
     element.classList.remove('is-valid');
     element.classList.remove('is-invalid');
+    element.removeAttribute('aria-invalid');
+
+    if (!feedback) {
+        return;
+    }
+
+    if (state === 'invalid') {
+        element.classList.add('is-invalid');
+        element.setAttribute('aria-invalid', 'true');
+        feedback.className = 'invalid-feedback';
+        feedback.textContent = message;
+    } else if (state === 'valid') {
+        element.classList.add('is-valid');
+        feedback.className = 'valid-feedback';
+        feedback.textContent = message || 'Looks good.';
+    } else {
+        feedback.className = 'invalid-feedback';
+        feedback.textContent = '';
+    }
 }
 
-/**
- * Validate the login form and try to log the user in
- * @param {object} event - The DOM event
- */
+function showErrorSummary(summaryId, listId, messages) {
+    var summary = document.getElementById(summaryId);
+    var list = document.getElementById(listId);
+
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
+
+    if (!messages.length) {
+        summary.classList.add('d-none');
+        return;
+    }
+
+    for (var i = 0; i < messages.length; i++) {
+        var item = document.createElement('li');
+        item.textContent = messages[i];
+        list.appendChild(item);
+    }
+
+    summary.classList.remove('d-none');
+    summary.focus();
+}
+
+function validateRequiredText(element, label, errors) {
+    if (element.value.trim().length === 0) {
+        setControlState(element, 'invalid', label + ' is required.');
+        errors.push(label + ' is required.');
+        return false;
+    }
+
+    setControlState(element, 'valid', '');
+    return true;
+}
+
+function validateEmail(element, label, errors) {
+    if (element.validity.valueMissing) {
+        setControlState(element, 'invalid', label + ' is required.');
+        errors.push(label + ' is required.');
+        return false;
+    }
+
+    if (element.validity.typeMismatch) {
+        setControlState(element, 'invalid', 'Enter a valid email address.');
+        errors.push('Enter a valid email address.');
+        return false;
+    }
+
+    setControlState(element, 'valid', '');
+    return true;
+}
+
+function validatePassword(element, errors) {
+    var value = element.value.trim();
+
+    if (value.length < 8 || value.length > 16) {
+        setControlState(
+            element,
+            'invalid',
+            'Password must be 8 to 16 characters long.'
+        );
+        errors.push('Password must be 8 to 16 characters long.');
+        return false;
+    }
+
+    if (value.match(/[a-zA-Z]+/) === null || value.match(/[0-9]+/) === null) {
+        setControlState(
+            element,
+            'invalid',
+            'Password must include both letters and numbers.'
+        );
+        errors.push('Password must include both letters and numbers.');
+        return false;
+    }
+
+    setControlState(element, 'valid', '');
+    return true;
+}
+
+function validateProgramme(element, errors) {
+    if (element.validity.valueMissing) {
+        setControlState(element, 'invalid', 'Select a programme.');
+        errors.push('Select a programme.');
+        return false;
+    }
+
+    setControlState(element, 'valid', '');
+    return true;
+}
+
 function login(event) {
     event.preventDefault();
-    event.stopPropagation();
 
-    var hasError = false;
-
+    var errors = [];
     var email = document.getElementById('login-email-control');
-    if (email.validity.valid) {
-        setValid(email);
-    } else if (email.validity.valueMissing) {
-        setInvalid(email);
-        hasError = true;
-    } else {
-        setInvalid(email);
-        hasError = true;
-    }
-
     var password = document.getElementById('login-password-control');
-    if (password.value.trim().length == 0) {
-        setInvalid(password);
-        hasError = true;
-    } else {
-        setValid(password);
-    }
 
-    if (hasError) {
-        document.getElementById('login-error').classList.remove('d-none');
-    } else {
-        document.getElementById('login-error').classList.add('d-none');
-    }
+    validateEmail(email, 'Email address', errors);
+    validateRequiredText(password, 'Password', errors);
+
+    showErrorSummary('login-error', 'login-error-list', errors);
 }
 
-/**
- * Validate the login form and try to retrieve the password
- * @param {object} event - The DOM event
- */
 function forgot(event) {
     event.preventDefault();
-    event.stopPropagation();
 
-    var hasError = false;
-
+    var errors = [];
     var email = document.getElementById('login-email-control');
-    if (email.validity.valid) {
-        setValid(email);
-    } else if (email.validity.valueMissing) {
-        setInvalid(email);
-        hasError = true;
-    } else {
-        setInvalid(email);
-        hasError = true;
-    }
-
     var password = document.getElementById('login-password-control');
-    removeValidation(password);
 
-    if (hasError) {
-        document.getElementById('login-error').classList.remove('d-none');
-    } else {
-        document.getElementById('login-error').classList.add('d-none');
-    }
+    validateEmail(email, 'Email address', errors);
+    setControlState(password, 'default', '');
+
+    showErrorSummary('login-error', 'login-error-list', errors);
 }
 
-/**
- * Validate the login form and try to register the new user
- * @param {object} event - The DOM event
- */
 function register(event) {
     event.preventDefault();
-    event.stopPropagation();
 
-    var hasError = false;
+    var errors = [];
 
-    var firstName = document.getElementById('register-first-name-control');
-    if (firstName.value.trim().length == 0) {
-        setInvalid(firstName);
-        hasError = true;
-    } else if (firstName.validity.valid) {
-        setValid(firstName);
-    }
+    validateRequiredText(
+        document.getElementById('register-first-name-control'),
+        'First name',
+        errors
+    );
+    validateRequiredText(
+        document.getElementById('register-last-name-control'),
+        'Last name',
+        errors
+    );
+    validateEmail(
+        document.getElementById('register-email-control'),
+        'Email address',
+        errors
+    );
+    validatePassword(
+        document.getElementById('register-password-control'),
+        errors
+    );
+    validateProgramme(
+        document.getElementById('register-programme-control'),
+        errors
+    );
 
-    var lastName = document.getElementById('register-last-name-control');
-    if (lastName.value.trim().length == 0) {
-        setInvalid(lastName);
-        hasError = true;
-    } else if (lastName.validity.valid) {
-        setValid(lastName);
-    }
-
-    var email = document.getElementById('register-email-control');
-    if (email.validity.valid) {
-        setValid(email);
-    } else if (email.validity.valueMissing) {
-        setInvalid(email);
-        hasError = true;
-    } else {
-        setInvalid(email);
-        hasError = true;
-    }
-
-    var password = document.getElementById('register-password-control');
-    var passwordValue = password.value.trim();
-    if (passwordValue.length < 8) {
-        setInvalid(password);
-        hasError = true;
-    } else if (passwordValue.length > 16) {
-        setInvalid(password);
-        hasError = true;
-    } else if (passwordValue.match(/[a-zA-Z]+/) == null) {
-        setInvalid(password);
-        hasError = true;
-    } else if (passwordValue.match(/[0-9]+/) == null) {
-        setInvalid(password);
-        hasError = true;
-    } else {
-        setValid(password);
-    }
-
-    var programme = document.getElementById('register-programme-control');
-    if (programme.validity.valueMissing) {
-        setInvalid(programme);
-        hasError = true;
-    } else if (!programme.validity.valid) {
-        setInvalid(programme);
-        hasError = true;
-    } else {
-        setValid(programme);
-    }
-
-    if (hasError) {
-        document.getElementById('register-error').classList.remove('d-none');
-    } else {
-        document.getElementById('register-error').classList.add('d-none');
-    }
+    showErrorSummary('register-error', 'register-error-list', errors);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    document
-        .getElementById('login-login-button')
-        .addEventListener('click', login, false);
-
-    document
-        .getElementById('login-forgot-button')
-        .addEventListener('click', forgot, false);
-
-    document
-        .getElementById('register-register-button')
-        .addEventListener('click', register, false);
+    document.getElementById('login-form').addEventListener('submit', login, false);
+    document.getElementById('login-forgot-button').addEventListener('click', forgot, false);
+    document.getElementById('register-form').addEventListener('submit', register, false);
 }, false);
